@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Дом</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/clases.css')}}">
+</head>
+<body>
+    <div>
+        <p>Текущий логин {{login}}</p>
+    </div>
+    <ul class="nav-line">
+        <li class="nav"><a href="/exit">Выход</a></li>
+        <li class="nav"><a href="/edit_akk">Редактирвоание учетной записи</a> </li>
+        {% if 0 == promis or promis == 1 %}
+            <li class="nav"><a href="/registor_akk">Добавление сотрудника</a></li>
+        {% endif %}
+        {% if promis == 0  or promis == 2 or promis == 3%}
+            <li class="nav"><a href="/edit_product" class="nav-line">Изменение состояния товара</a></li>
+            <li class="nav"><a href="/give_report">Создание отчета</a></li>
+        {% endif %}
+        {% if promis == 0 or promis == 3 %}
+            <li class="nav"><a href="/add_product">Добавление нового товара</a></li>
+            <li class="nav"><a href="/edit_storage">Измение информации о скалах</a></li>
+        {% endif %}
+    </ul>
+</body>
+</html>

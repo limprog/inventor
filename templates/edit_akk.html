@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>изменение учетной записи</title>
+</head>
+<body>
+    {% if error.0 == 1 %}
+        введите {{error.1}}
+    {% elif error.0 == 2 %}
+        Такой логин уже существует
+    {% elif error.0 == 3 %}
+        неправильный пароль
+    {% endif %}
+    <h3>Измениние логина</h3>
+    <form method="post">
+        <label>Введите новый логин:</label><input type="text" name="login"
+                                            placeholder="Логин" value="{{request.form['login']}}"><br>
+        <label>Введите пароль:</label><input type="password" name="code"
+                                             placeholder="Пароль" value="{{request.form['code']}}">
+       <button type="submit" name="btn" value="login">Отправить форму</button>
+    </form>
+    <h2>Изменение пароля</h2>
+    <form method="post">
+        <label>Введите старый пароль:</label><input type="password" name="old_code"
+                                             placeholder="Пароль" value="{{request.form['old_code']}}"><br>
+        <label>Введите новый пароль:</label><input type="password" name="new_code"
+                                             placeholder="Пароль" value="{{request.form['new_code']}}">
+        <button type="submit" name="btn" value="code">Отправить форму</button>
+    </form>
+</body>
+</html>
