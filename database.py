@@ -20,24 +20,31 @@ cur.execute("""CREATE TABLE IF NOT EXISTS storage(
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
             name TEXT, 
             address TEXT,
-            сapacity INT)""")
+            сapacity INT,
+            сapacity2 INT)""")
+cur.execute("""CREATE TABLE IF NOT EXISTS type_product(
+            name TEXT PRIMARY KEY);""")
 cur.execute("""CREATE TABLE IF NOT EXISTS products(
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
             type TEXT, 
             count INT,
-            img TEXT,
-            storage_id INT, 
-            FOREIGN KEY (storage_id) REFERENCES storage(id));""")
+            storage TEXT,
+            FOREIGN KEY (type) REFERENCES type_product(name),
+            FOREIGN KEY (storage) REFERENCES storage(name));""")
 first_code = jwt.encode({'code':"1234"}, SECRET_KEY, algorithm='HS256')
 # cur.execute("""INSERT INTO users (login, cod, promis) VALUES (?,?,?)""",
 #             ("director", first_code, 0, ))
 # cur.execute("""INSERT INTO users (login, cod, promis) VALUES (?,?,?)""",
-#             ("test", first_code, 1, ))
+#             ("test", first_code, 3, ))
 conn.commit()
 cur.execute("SELECT * FROM users;")
 print(cur.fetchall(), 'users')
 cur.execute("SELECT * FROM products;")
 print(cur.fetchall(), 'products')
+cur.execute("SELECT * FROM type_product;")
+print(cur.fetchall(), 'type_product')
+cur.execute("SELECT * FROM storage;")
+print(cur.fetchall(), 'storage')
 conn.close()
 
 

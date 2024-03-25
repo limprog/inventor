@@ -5,6 +5,39 @@
     <title>Изменение продукта</title>
 </head>
 <body>
+{% if error.0 == 1 %}
+    Ошибка: Заполните изменение количества товара
+{% elif error.0 == 2 %}
+    Ошибка: такой тип уже существует
+{% elif error.0 == 3 %}
+    Ошибка: введите в изменение число
+{% elif error.0 == 4 %}
+    Ошибка: отрицательное значение товара
+{% elif error.0 == 5 %}
+    Ошбика: Склад будет переполнен
 
+{% endif%}
+<h2>Изменение товара</h2>
+<form method="post">
+    <label>Выберете тип товара</label><select name="type">
+        {% for type in types %}
+            <option value="{{type}}">{{type}}</option>
+        {% endfor %}
+    </select><br>
+    <label>Выберите склад</label><select name="storage">
+        {% for storage in storages %}
+            <option value="{{storage}}">{{storage}}</option>
+        {% endfor %}
+    </select>
+    <label>напишите изменение</label><input name="quantity" type="text"
+                                            placeholder="Количество" value="{{request.form['quantity']}}">
+    <button type="submit" name="bnt" value="product">Отправить форму</button>
+</form>
+<h2>Добавление нового типа товаров</h2>
+<form method="post">
+    <label>Название нового типа товара</label><input type="text" name="new_type"
+                                                placeholder="Тип" value="{{request.form['new_type']}}">
+    <button type="submit" name="bnt" value="new_type">Отправить форму</button>
+</form>
 </body>
 </html>

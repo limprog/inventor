@@ -9,8 +9,8 @@
         Ошибка: введите {{error.1}}
     {% elif error.0 == 2 %}
         Ошибка:Такой логин уже существует
-    {% elif error.0 == 3%}
-        Ошибка:Такого логина не существет
+    {% elif error.0 == 3 %}
+        Ошибка:Такого логина не существует
     {% endif %}
     <h2>Регистрация сотрудника</h2>
     <form method="post">
@@ -21,7 +21,7 @@
         <label>Выберте права</label><select name="promis">
             <option value="0">все</option>
             <option value="1"> создание новых учетных записей</option>
-            <option value="2" selected>добовление нового типа товаров, измениние учета товаров, получение отчета</option>
+            <option value="2" selected>измениние учета товаров, получение отчета</option>
             <option value="3">измениние учета товаров, получение отчета, изменине складов</option>
         </select><br>
         <button type="submit" name="btn" value="reg">Отправить форму</button>

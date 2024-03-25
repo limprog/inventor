@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание склада</title>
+</head>
+<body>
+{% if error.0 == 1 %}
+    Ошибка: введите {{error.1}}
+{% elif error.0 == 2%}
+    Ошибка: введите натуральное число в количество
+{% elif error.0 == 3%}
+    Ошибка: такой склад уже есть
+{% elif error.0 == 4 %}
+        Склад будет переполнен
+{% endif %}
+<h2>Зарегистрируйте новый склад</h2>
+<form method="post">
+    <label>Введите название</label><input type="text" name="name" placeholder="Название"
+                                    value="{{request.form['name']}}"><br>
+    <label>Введите адрес</label><input type="text" name="address" placeholder="Адрес"
+                                value="{{request.form['address']}}"><br>
+    <label>Введите вместительность</label><input type="text" name="сapacity" placeholder="Вместительность"
+                                value="{{request.form['сapacity']}}"><br>
+    <button type="submit" name="btn" value="create">Отправить форму</button>
+</form>
+<h2>Изменение вместимости склада</h2>
+<form method="post">
+    <label>Выберите склад</label>
+    <select name="name1">
+        {% for storage in storages %}
+            <option value="{{storage}}">{{storage}}</option>
+        {% endfor %}
+    </select>
+    <label>укажите новую вместительность </label><input type="text" name="сapacity1" placeholder="Вместительность"
+                                value="{{request.form['сapacity1']}}"><br>
+    <button type="submit" name="btn" value="update">Отправить форму</button>
+</form>
+</body>
+</html>
