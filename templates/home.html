@@ -16,12 +16,11 @@
             <li class="nav"><a href="/registor_akk">Добавление сотрудника</a></li>
         {% endif %}
         {% if promis == 0  or promis == 2 or promis == 3%}
-            <li class="nav"><a href="/edit_product" class="nav-line">Изменение состояния товара</a></li>
+            <li class="nav"><a href="/add_product" class="nav-line">Изменение состояния товара</a></li>
             <li class="nav"><a href="/give_report">Создание отчета</a></li>
         {% endif %}
         {% if promis == 0 or promis == 3 %}
-            <li class="nav"><a href="/add_product">Добавление нового товара</a></li>
-            <li class="nav"><a href="/edit_storage">Измение информации о скалах</a></li>
+            <li class="nav"><a href="/edit_storage">Изменение информации о скалах</a></li>
         {% endif %}
     </ul>
 </body>

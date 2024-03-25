@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>измениение пользователя</title>
+</head>
+<body>
+    {% if error.0 == 1 %}
+        Ошибка: введите {{error.1}}
+    {% elif error.0 == 2 %}
+        Ошибка:Такой логин уже существует
+    {% elif error.0 == 3%}
+        Ошибка:Такого логина не существет
+    {% endif %}
+    <h2>Регистрация сотрудника</h2>
+    <form method="post">
+        <label>придумайте логин:</label><<input type="text" name="login"
+                                            placeholder="Логин" value="{{request.form['login']}}"><br>
+        <label>Придумайте пароль:</label><input type="password" name="code"
+                                             placeholder="Пароль" value="{{request.form['code']}}"><br>
+        <label>Выберте права</label><select name="promis">
+            <option value="0">все</option>
+            <option value="1"> создание новых учетных записей</option>
+            <option value="2" selected>добовление нового типа товаров, измениние учета товаров, получение отчета</option>
+            <option value="3">измениние учета товаров, получение отчета, изменине складов</option>
+        </select><br>
+        <button type="submit" name="btn" value="reg">Отправить форму</button>
+    </form>
+    <h2>Изменение прав струдника</h2>
+    <form method="post">
+         <label>Введите логин:</label><input type="text" name="login1"
+                                            placeholder="Логин" value="{{request.form['login1']}}"><br>
+        <label>Выберте права</label><select name="promis1">
+            <option value="0">все</option>
+            <option value="1"> создание новых учетных записей</option>
+            <option value="2" selected> изменение учета товаров, получение отчета</option>
+            <option value="3">изменение учета товаров, получение отчета, изменение складов</option>
+        </select><br>
+        <button type="submit" name="btn" value="promis">Отправить форму</button>
+
+    </form>
+</body>
+</html>
