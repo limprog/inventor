@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Отчет</title>
+</head>
+<body>
+<h1>Распределение каждого товара по складам</h1>
+{% for product_pie in product_pies %}
+    <h3>{{product_pie.0}}</h3>
+    <img src="data:image/png;base64, {{ product_pie.1 }}">
+{% endfor %}
+<h1>Чем заполнены склады</h1>
+{% for storage_pie in storage_pies %}
+    <h3>{{storage_pie.0}}</h3>
+    <img src="data:image/png;base64, {{ storage_pie.1 }}">
+{% endfor %}
+<br>
+
+
+
+
+
+
+<h1>Заполненность складов</h1>
+<img src="data:image/png;base64, {{ storage_png }}">
+</body>
+</html>

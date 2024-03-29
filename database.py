@@ -34,7 +34,7 @@ cur.execute("""CREATE TABLE IF NOT EXISTS products(
 first_code = jwt.encode({'code':"1234"}, SECRET_KEY, algorithm='HS256')
 # cur.execute("""INSERT INTO users (login, cod, promis) VALUES (?,?,?)""",
 #             ("director", first_code, 0, ))
-# cur.execute("""INSERT INTO users (login, cod, promis) VALUES (?,?,?)""",
+# cur.execute("""ITCLRNSERT INTO users (login, cod, promis) VALUES (?,?,?)""",
 #             ("test", first_code, 3, ))
 conn.commit()
 cur.execute("SELECT * FROM users;")
