@@ -322,5 +322,6 @@ def exit_fun():
         return redirect("/", 301)
     return render_template("exit.html")
 
+
 if __name__ == '__main__':
     app.run(debug=False)

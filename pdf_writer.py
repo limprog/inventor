@@ -64,4 +64,4 @@ def report():
     }
     pdfkit.from_file(html_file, "temp/report.pdf", options=options)
     return 200
-report()
+

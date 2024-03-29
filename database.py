@@ -46,5 +46,3 @@ print(cur.fetchall(), 'type_product')
 cur.execute("SELECT * FROM storage;")
 print(cur.fetchall(), 'storage')
 conn.close()
-
-
